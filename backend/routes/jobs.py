@@ -10,3 +10,7 @@ jobs_routes = Blueprint('jobs_routes', __name__)
 def get_jobs():
     return get_jobs_controller()
 
+@jobs_routes.route("/jobs/add", methods=["POST"])
+def create_job():
+    return create_job_controller()
+
