@@ -18,3 +18,7 @@ def create_job():
 def get_specfic_job(job_id):
     return get_specfic_job_controller(job_id)
 
+@jobs_routes.route("/jobs/<int:job_id>", methods=["PUT"])
+def update_job(job_id):
+    return update_job_controller(job_id)
+
