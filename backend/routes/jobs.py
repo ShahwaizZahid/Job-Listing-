@@ -14,3 +14,7 @@ def get_jobs():
 def create_job():
     return create_job_controller()
 
+@jobs_routes.route("/jobs/<int:job_id>", methods=["GET"])
+def get_specfic_job(job_id):
+    return get_specfic_job_controller(job_id)
+
