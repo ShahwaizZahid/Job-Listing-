@@ -22,3 +22,13 @@ def get_specfic_job(job_id):
 def update_job(job_id):
     return update_job_controller(job_id)
 
+@jobs_routes.route("/jobs/<int:job_id>", methods=["DELETE"])
+def delete_job(job_id):
+    job = Job.query.get(job_id)
+    if not job:
+        return jsonify({"error": "Job not found"}), 404
+
+    db.session.delete(job)
+    db.session.commit()
+
+    return jsonify({"message": "Job deleted successfully"}), 200 
